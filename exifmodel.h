@@ -21,6 +21,7 @@ class ExifModel : public QAbstractListModel {
     Q_OBJECT
     QML_ELEMENT
     Q_PROPERTY(QGeoRectangle visibleRegion READ visibleRegion NOTIFY visibleRegionChanged)
+
 public:
     explicit ExifModel(QObject *parent = nullptr) {};
 
@@ -56,6 +57,7 @@ public:
     }
 signals:
     void visibleRegionChanged();
+    void errorOccurred(QString message );
 private:
     QList<ExifPhoto> m_items;
     QGeoRectangle m_visibleRegion;
@@ -71,6 +73,7 @@ private:
         "Exif.GPSInfo.GPSImgDirection",
         "Exif.GPSInfo.GPSImgDirectionRef"
     };
+    bool containsFile(const QString &filepath) const;
 };
 
 #endif

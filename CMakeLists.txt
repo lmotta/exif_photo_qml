@@ -30,6 +30,8 @@ qt_add_qml_module(ExifQmlReader
     SOURCES
         exifmodel.cpp
         exifmodel.h
+        exifutils.h
+        exifutils.cpp
 )
 
 target_include_directories(ExifQmlReader PRIVATE ${EXIV2_INCLUDE_DIRS})
